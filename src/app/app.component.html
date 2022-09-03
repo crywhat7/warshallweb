@@ -5,7 +5,7 @@
   <p-inputNumber
     inputId="integeronly"
     [(ngModel)]="matrizSize"
-    [max]="12"    
+    [max]="12"
   ></p-inputNumber>
   <button
     pButton
@@ -14,13 +14,24 @@
     (click)="crearMatriz()"
   ></button>
 </div>
-<br>
+<br />
 <div class="matriz">
+  <table *ngIf="matriz">
+    <tr *ngFor="let row of matriz; let i = index">
+      <td *ngFor="let col of row; let j = index">
+        <p-inputSwitch [(ngModel)]="matriz[i][j]"></p-inputSwitch>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <button pButton type="button" label="Warshall" (click)="warshall()"></button>
+</div>
+<div class="matriz" *ngIf="resultado.length > 0">
   <table>
-    <tr *ngFor="let row of matriz">
-      <td *ngFor="let col of row">
-        <!-- <label>A</label> -->
-        <p-inputSwitch></p-inputSwitch>
+    <tr *ngFor="let row of resultado; let i = index">
+      <td *ngFor="let col of row; let j = index">
+        <p-inputSwitch [readonly]="true" [(ngModel)]="resultado[i][j]"></p-inputSwitch>
       </td>
     </tr>
   </table>
