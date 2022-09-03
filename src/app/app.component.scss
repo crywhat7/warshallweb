@@ -1,0 +1,25 @@
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep p-inputNumber{
+  height: 1rem;
+}
+
+div {  
+  text-align: center;  
+}
+
+button {
+  height: 1rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+div.matriz {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
