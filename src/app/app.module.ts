@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { CheckboxModule } from 'primeng/checkbox';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +21,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     FormsModule,
     ButtonModule,
     InputSwitchModule,
+    CheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

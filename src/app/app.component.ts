@@ -7,15 +7,28 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  title = 'TDA Warshall - Equipo 3';
+
   matriz: any[] = [];
+  matrizView: any[] = [];
+  matrizSize = 6;
+  cantidadVertices = 3;
+  maxVertices = 0;
+  vertices: Array<object> = [];
   resultado: any[] = [];
+
   constructor(private primengConfig: PrimeNGConfig) {
-    this.primengConfig.ripple = true;
-    this.crearMatriz();
+    this.primengConfig.ripple = true;    
+    // this.crearMatriz();
   }
 
-  title = 'WarshallWeb';
-  matrizSize = 6;
+  agregarVertices() {
+    this.vertices = [];
+    for (let i = 0; i < this.cantidadVertices; i++) {
+      this.vertices.push({});
+    }
+    console.log(' vertices', this.vertices);
+  }
 
   crearMatriz() {
     this.matriz = [];
@@ -24,22 +37,20 @@ export class AppComponent {
       for (let j = 0; j < this.matrizSize; j++) {
         this.matriz[i].push(false);
       }
-    }    
-  }
-  verMatriz() {
-    console.log('Matriz', this.matriz);
+    }
+    this.resultado = [];
+    this.matrizView = JSON.parse(JSON.stringify(this.matriz));
   }
 
   cambiarValor(i: number, j: number) {
     this.matriz[i][j] = !this.matriz[i][j];
+    console.log('Matriz Normal', this.matriz);
+    this.matrizView = [];
+    this.matrizView = JSON.parse(JSON.stringify(this.matriz));
+    console.log('Matriz View ', this.matrizView);
   }
 
   warshall() {
-    this.matriz[0][1] = true;
-    this.matriz[1][2] = true;
-    this.matriz[2][0] = true;
-    this.matriz[2][5] = true;
-    this.matriz[3][5] = true;
     this.resultado = JSON.parse(JSON.stringify(this.matriz));
 
     const matrizSize = this.matrizSize;

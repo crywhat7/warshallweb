@@ -1,5 +1,9 @@
-<h1>TDA Warshall</h1>
-<div>
+<div class="header">
+  <img src="../assets/gokuChiquito.png" />
+  <h1>TDA Warshall - Grupo #3</h1>
+  <img src="../assets/gokuGrande.png" />
+</div>
+<div class="ingresar-tamanio">
   <label>Ingrese el tamaño matriz de adyacencia: </label>
   <br />
   <p-inputNumber
@@ -15,24 +19,44 @@
   ></button>
 </div>
 <br />
-<div class="matriz">
-  <table *ngIf="matriz">
-    <tr *ngFor="let row of matriz; let i = index">
-      <td *ngFor="let col of row; let j = index">
-        <p-inputSwitch [(ngModel)]="matriz[i][j]"></p-inputSwitch>
-      </td>
-    </tr>
-  </table>
+<div class="matrices">
+  <span>
+    <div class="matriz">
+      <table *ngIf="matrizView">
+        <tr *ngFor="let row of matrizView; index as i">
+          <td *ngFor="let col of row; index as j">
+            <p-checkbox
+              [ngModel]="matrizView[i][j]"
+              [binary]="true"
+              (click)="cambiarValor(i, j)"
+            ></p-checkbox>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </span>
+  <span>
+    <div class="matriz" *ngIf="resultado.length > 0">
+      <table>
+        <tr *ngFor="let row of resultado; let i = index">
+          <td *ngFor="let col of row; let j = index">
+            <p-checkbox
+              [readonly]="true"
+              [binary]="true"
+              [(ngModel)]="resultado[i][j]"
+            ></p-checkbox>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </span>
 </div>
 <div>
-  <button pButton type="button" label="Warshall" (click)="warshall()"></button>
-</div>
-<div class="matriz" *ngIf="resultado.length > 0">
-  <table>
-    <tr *ngFor="let row of resultado; let i = index">
-      <td *ngFor="let col of row; let j = index">
-        <p-inputSwitch [readonly]="true" [(ngModel)]="resultado[i][j]"></p-inputSwitch>
-      </td>
-    </tr>
-  </table>
+  <button
+    *ngIf="matrizView.length > 0"
+    pButton
+    type="button"
+    label="Warshall"
+    (click)="warshall()"
+  ></button>
 </div>

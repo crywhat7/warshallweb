@@ -1,20 +1,42 @@
-h1 {
+.header {
+  background-color: #fa6e1b;
+  height: 15vh;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 100%;
+  }
+  h1 {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+  }
 }
 
-::ng-deep p-inputNumber{
+::ng-deep p-inputNumber {
   height: 1rem;
 }
 
-div {  
-  text-align: center;  
+div {
+  text-align: center;
+}
+
+.ingresar-tamanio {
+  margin-top: 1rem;
 }
 
 button {
   height: 1rem;
-  margin-left: .5rem;
-  margin-right: .5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 div.matriz {
@@ -23,4 +45,24 @@ div.matriz {
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+}
+
+.matrices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100vw;
+  height: 60vh;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 55vh;
+    ::ng-deep .p-checbox .p-checkbox-box {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
 }
